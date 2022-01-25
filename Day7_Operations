@@ -1,0 +1,24 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        int n1=9;
+        int n2=18;
+        int sum=n1+n2;
+        int diff=n2-n1;
+        int mul=n1*n2;
+        int Div=n2/n1;
+        System.out.print("Sum of numbers is: ");
+        System.out.println(sum);
+        System.out.print("Difference of numbers is: ");
+        System.out.println(diff);
+        System.out.print("Multiplication of numbers is: ");
+        System.out.println(mul);
+        System.out.print("Division of numbers is: ");
+        System.out.println(Div);
+
+
+    }
+}

@@ -1,0 +1,13 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        float maths= 24.5f;
+        float english=27;
+        float science=29;
+        float CGPA=(maths+english+science)/90;
+        System.out.println(CGPA);
+    }
+}

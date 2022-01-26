@@ -1,0 +1,15 @@
+package com.company;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        System.out.println("Enter the Kilometeres to convert to miles");
+        Scanner sc= new Scanner(System.in);
+        double km =sc.nextDouble();
+        double miles= km*0.621371;
+        System.out.println(miles);
+
+    }
+}

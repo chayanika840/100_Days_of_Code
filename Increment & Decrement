@@ -1,0 +1,28 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        byte x=5;
+        int y=7;
+        short z=9;
+        int a=y+z;
+        float b=2.454f+x;
+        System.out.println(a);
+        System.out.println(b);
+
+        int i=45;
+        int j=22;
+        int c=++i;
+        int d=j++;
+        System.out.println(c);
+        System.out.println(d);
+
+        int s=4;
+        System.out.println(++s *5);
+
+        char ch='a';
+        System.out.println(++ch);
+    }
+}

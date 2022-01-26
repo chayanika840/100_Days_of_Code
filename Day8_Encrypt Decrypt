@@ -1,0 +1,19 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+    //Finding 'a'
+        int x = 7;
+        int a = 7*49/7 + 35/7;
+        System.out.println(a);
+
+    //Encrypt Decrypt
+    char grade='C';
+    grade=(char)(grade+8);
+        System.out.println(grade);
+        grade=(char)(grade-8);
+        System.out.println(grade);
+    }
+}

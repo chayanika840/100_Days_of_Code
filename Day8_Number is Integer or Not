@@ -1,0 +1,39 @@
+package com.company;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        System.out.println("Enter the integer value to check: ");
+        Scanner sc=new Scanner(System.in);
+        System.out.println(sc.hasNextInt());
+    }
+}
+
+
+//PRECEDENCE AND ASSOCIATIVITY OF OPERATORS
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        int g=6*5-34/2;
+        System.out.println(g);
+
+        int h=6/2+3*4;
+        System.out.println(h);
+
+        int x=2;
+        int y=4;
+        int k=x*y/2;
+        System.out.println(k);
+
+        int a=5;
+        int b=6;
+        int c=7;
+        int d=b*b - (4*a*c)/(2*a);
+        System.out.println(d);
+    }
+}

@@ -1,0 +1,31 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        String s1="CHAYANIKA";
+        s1=s1.toLowerCase();
+        System.out.println(s1);
+
+        String s2="arora";
+        s2=s2.toUpperCase();
+        System.out.println(s2);
+
+        String text="To My    Friend";
+        text=text.replace(" ","_");
+        System.out.println(text);
+
+        String letter="Dear <|name|>, Thanks a lot";
+        letter=letter.replace("|name|>","Akshaya");
+        System.out.println(letter);
+
+        String mystring="This string contains double and triple spaces";
+        System.out.println(mystring.indexOf("  "));
+        System.out.println(mystring.indexOf("   "));
+
+        String letter2="Dear Harry,\n \tThis Java Course is Nice.\nThanks!";
+        System.out.println(letter2);
+
+    }
+}

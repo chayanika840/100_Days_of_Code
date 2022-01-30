@@ -1,0 +1,66 @@
+package com.company;
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        String player;
+        String compPlay="";
+        int compInt;
+        String response;
+
+        Scanner sc=new Scanner(System.in);
+        Random generator=new Random();
+
+        System.out.println("Lets play Rock Paper Scissor!"+"Type your state:"+"r=rock,s=scissor,p=paper");
+
+        compInt=generator.nextInt(3)+1;
+
+        if(compInt==1){
+            compPlay="R";
+        }
+        else if(compInt==2){
+            compPlay="P";
+        }
+        else if(compInt==3){
+            compPlay="S";
+        }
+        int i=1;
+        while(i<6){
+            System.out.println("Enter your play: ");
+            player=sc.next();
+            player=player.toUpperCase();
+
+            System.out.println("Computer play is:"+compPlay);
+
+            if(compPlay.equals(player)){
+                System.out.println("Tie match");
+            }
+            else if(player.equals("R")){
+                if(player.equals("S")){
+                    System.out.println("Rock kills Scissor: YOU ARE WINNER");
+                }
+                else if (compPlay.equals("P"))
+                    System.out.println("Paper covers Rock: You Lose!\n");
+                else if (player.equals("P"))
+                    if (compPlay.equals("R"))
+                        System.out.println("Paper covers Rock: You Win!\n");
+                    else if (compPlay.equals("S"))
+                        System.out.println("Scissor cuts the Paper:You Lose!\n");
+                    else if (player.equals("S"))
+                        if (compPlay.equals("R"))
+                            System.out.println("ROck crushes Scissor:You Lose!\n");
+                        else if (compPlay.equals("P"))
+                            System.out.println("Scissor cuts Paper: You Win!\n");
+
+
+                i++;
+            }
+
+
+        }
+    }
+            }
+      

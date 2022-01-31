@@ -1,0 +1,32 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+  //Sum of even numbers
+        int sum=0;
+        int n=4;
+        for(int i=0;i<n;i++){
+            sum=sum+(2*i);
+        }
+        System.out.println("Sum of even numbers is: ");
+        System.out.println(sum);
+        
+        //Multiplication Table of 10 in reverse order
+        int y=6;
+        for(int x=0;x<10;x++){
+            System.out.printf("%d X %d \n",y,x,y*x);
+        }
+        
+        //Factorial of a numnber
+        int a=5;
+        int c=1;
+        int factorial=1;
+        while(c<=a){
+            factorial *=c;
+            c++;
+        }
+        System.out.println(factorial);
+    }
+    }

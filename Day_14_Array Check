@@ -1,0 +1,39 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        float[] marks={2.5f,7.6f,5.7f,8.5f,9.0f};
+        float sum=0;
+        for(float element:marks){
+            sum=sum+element;
+            System.out.println(sum);
+        }
+
+        int[] a={1,2,3,4,5};
+        int num=4;
+        boolean isInArray=false;
+        for(int element: a){
+            if(num==element){
+                isInArray=true;
+                break;
+            }
+        }
+        if(isInArray){
+            System.out.println(num);
+            System.out.println("The value is present in the array");
+        }
+        else{
+            System.out.println("The value is not present in the array");
+        }
+
+        float[] m={2.5f,7.6f,5.7f,8.5f,9.0f};
+        float s=0;
+        for(float element:m){
+            s=s+element;
+            System.out.println("the value of avg marks is"+s/m.length);
+        }
+
+    }
+}

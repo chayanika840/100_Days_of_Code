@@ -1,0 +1,104 @@
+package com.company;
+
+//Game TommyVecetti
+class Tommy{
+    public void hit(){
+        System.out.println("Hitting the enemy");
+    }
+    public void run(){
+        System.out.println("Running from the enemy");
+    }
+    public void fire(){
+        System.out.println("Firing at the enemy");
+    }
+}
+
+//Area Perimeter of Square
+class Square{
+    int side;
+    public int area(){
+        return side*side;
+    }
+    public int perimeter(){
+        return 4*side;
+    }
+}
+
+//Area Perimeter of Rectangle
+class Rec{
+    int l;
+    int b;
+    public int a(){
+        return l*b;
+    }
+    public int p(){
+        return 2*(l+b);
+    }
+}
+
+//Salary name of an employee
+class Employee{
+    int salary;
+    String name;
+
+    public int getSalary(){
+        return salary;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+//Cellphone Ring, Call Vibrate Features 
+class CellPhone{
+    public void ring(){
+        System.out.println("Ringing.....");
+    }
+    public void vibrate(){
+        System.out.println("Vibrating....");
+    }
+    public void callFriend(){
+        System.out.println("Calling freind....");
+    }
+
+
+}
+
+
+public class cwh_39_ch8ps {
+    public static void main(String[] args) {
+    
+    //Initializing and calling of objects from classes above
+
+        Employee chay=new Employee();
+        chay.setName("Chayanika");
+        chay.salary=233454;
+        System.out.println(chay.getSalary());
+        System.out.println(chay.getName());
+
+        CellPhone Sam=new CellPhone();
+        Sam.callFriend();
+        Sam.ring();
+        Sam.vibrate();
+
+        Square sq=new Square();
+        sq.side=3;
+        System.out.println(sq.area());
+        System.out.println(sq.perimeter());
+
+        Rec r=new Rec();
+        r.l=4;
+        r.b=3;
+        System.out.println(r.a());
+        System.out.println(r.p());
+
+        Tommy play1=new Tommy();
+        play1.fire();
+        play1.hit();
+        play1.run();
+    }
+}

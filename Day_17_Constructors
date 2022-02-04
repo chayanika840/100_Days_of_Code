@@ -1,0 +1,42 @@
+package com.company;
+
+class MyMainEmployee{
+    private int id;
+    private String name;
+
+    public MyMainEmployee(){
+        id = 18;
+        name = "Hi I am Chayanika";
+    }
+    public MyMainEmployee(String myName, int myId){
+        id = myId;
+        name = myName;
+    }
+    public MyMainEmployee(String myName){
+        id = 1;
+        name = myName;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setName(String n){
+        this.name = n;
+    }
+    public void setId(int i){
+        this.id = i;
+    }
+    public int getId(){
+        return id;
+    }
+}
+
+public class cwh_42_constructors {
+    public static void main(String[] args) {
+        //MyMainEmployee chay = new MyMainEmployee("Chayanika", 12);
+        MyMainEmployee chay= new MyMainEmployee();
+        //chay.setName("Chayanika");
+        //chay.setId(34);
+        System.out.println(chay.getId());
+        System.out.println(chay.getName());
+    }
+}

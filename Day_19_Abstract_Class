@@ -1,0 +1,32 @@
+package com.company;
+
+//Abstract class sets a standard to implement methods and make a concrete class n override all methods in it otherwise make it abstract
+//Way to make class for a child from the parent(parent helps child here child2 helped by parent1)
+abstract class Parent1{
+    public Parent1(){
+        System.out.println("I am constructor of Parent1");
+    }
+    public void Hello(){
+        System.out.println("hello");
+    }
+    abstract public void greet();
+}
+class Child2 extends Parent1{
+    public void greet(){
+        System.out.println("hello there!! gm!");
+    }
+}
+
+abstract class Child3 extends Parent1{
+    public void th(){
+        System.out.println("Gn");
+    }
+
+}
+public class cwh_53_abstract {
+    public static void main(String[] args) {
+        Child2 c=new Child2();
+        //Parent 2 cant make an object since its an abstract class.. others extending from it can make an object
+
+    }
+}

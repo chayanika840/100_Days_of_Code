@@ -1,0 +1,46 @@
+package com.company;
+
+//Interface is a point where 2 systems interact..grp of related methods with empty bodies..classes hv to define each method
+//Multiple Interfaces can make a class.
+
+interface Bicycle{
+    int a=26;
+    void applyBrake(int decrement);
+    default void speedUp(int increment) {
+    }
+    interface HornBicycle{
+        void blowHorn1();
+        void blowHorn2();
+        }
+
+class AvonCycle implements Bicycle, HornBicycle{
+        void blowHorn(){
+            System.out.println("Honk");
+        }
+        public void applyBrake(int decrement){
+            System.out.println("Apply brake");
+        }
+        public void speedUp(int increment){
+            System.out.println("Speeding up the vehicle");
+        }
+        public void blowHorn1(){
+            System.out.println("Horn 1  honks p p p p");
+        }
+        public void blowHorn2(){
+            System.out.println("Horn 2 honks po po po");
+        }
+}
+}
+
+public class cwh_54_interfaces {
+    public static void main(String[] args) {
+        Bicycle.AvonCycle chay=new Bicycle.AvonCycle();
+        chay.applyBrake(2);
+        System.out.println(chay.a); //You can create properties in interface
+        //But u can't modify a property in an interface as 'a' ki value phele he final ho jati hai..jo property bana di it is final n cant be changed!
+        
+        //Two or more interfaces can be present 
+        chay.blowHorn1();
+        chay.blowHorn2();
+    }
+}

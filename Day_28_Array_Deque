@@ -1,0 +1,116 @@
+//Inserting at the front of an Array
+import java.util.*;
+public class CWH extends Thread{
+    public static void main(String[] args) {
+
+        ArrayDeque<Integer> ad1 = new ArrayDeque<>();
+        ad1.add(6);
+        ad1.add(56);
+        ad1.add(9);
+        ad1.addFirst(5);
+        ad1.offerFirst(10);
+        System.out.println(ad1);
+
+    }
+}
+
+
+//Inserting at the end of the array
+import java.util.*;
+public class CWH extends Thread{
+    public static void main(String[] args) {
+
+        ArrayDeque<Integer> ad1 = new ArrayDeque<>();
+        ad1.add(6);
+        ad1.add(56);
+        ad1.add(9);
+        ad1.addLast(5);
+        ad1.offerLast(10);
+        
+        System.out.println(ad1);
+
+    }
+}
+
+
+//Accessing an element from the head of the deque array- getFirst() & peekFirst() methods 
+import java.util.*;
+public class CWH extends Thread{
+    public static void main(String[] args) {
+
+        ArrayDeque<Integer> ad1 = new ArrayDeque<>();
+        ad1.add(6);
+        ad1.add(56);
+        ad1.add(9);
+        ad1.add(10);
+        ad1.add(91);
+        ad1.add(19);
+
+        System.out.println(ad1.getFirst());
+        System.out.println(ad1.peekFirst());
+
+    }
+}
+
+Accessing the last element- getLast() or peekLast()
+import java.util.*;
+public class CWH extends Thread{
+    public static void main(String[] args) {
+
+        ArrayDeque<Integer> ad1 = new ArrayDeque<>();
+        ad1.add(6);
+        ad1.add(56);
+        ad1.add(9);
+        ad1.add(10);
+        ad1.add(91);
+        ad1.add(19);
+
+        System.out.println(ad1.getLast());
+        System.out.println(ad1.peekLast());
+
+    }
+}
+
+//Removing the first element: removeFirst() & pollFirst() methods are used to delete an element from the head of the queue.
+//removeFirst() throws an exception if the queue is empty.
+//pollFirst() returns null if the queue is empty.
+import java.util.*;
+public class CWH extends Thread{
+    public static void main(String[] args) {
+
+        ArrayDeque<Integer> ad1 = new ArrayDeque<>();
+        ad1.add(6);
+        ad1.add(56);
+        ad1.add(9);
+        ad1.add(10);
+        ad1.add(91);
+        ad1.add(19);
+
+        ad1.pollFirst(); //deletes 6
+        ad1.removeFirst(); //deletes 56
+
+        System.out.println(ad1);
+
+    }
+}
+
+//Removing the last element- removeLast() & pollLast() methods are used to delete an element from the tail of the queue
+import java.util.*;
+public class CWH extends Thread{
+    public static void main(String[] args) {
+
+        ArrayDeque<Integer> ad1 = new ArrayDeque<>();
+        ad1.add(6);
+        ad1.add(56);
+        ad1.add(9);
+        ad1.add(10);
+        ad1.add(91);
+        ad1.add(19);
+
+        ad1.pollLast(); //deletes 19
+        ad1.removeLast(); //deletes 91
+
+        System.out.println(ad1);
+
+    }
+}

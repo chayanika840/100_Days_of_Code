@@ -1,0 +1,54 @@
+/* Print the pattern :
+*
+**
+***
+****
+*****
+*/
+
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        System.out.println("*\n**\n***\n****\n*****\n");
+    }
+}
+
+
+/* Print Z Pattern in stars:
+
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("*****");
+		System.out.println("   * ");
+		System.out.println("  *  ");
+		System.out.println(" *   ");
+		System.out.println("*****");
+	}
+}
+
+/* Variables in Java
+
+public class Main
+{
+	public static void main(String[] args) {
+	    int x=6;
+	    int y=10;
+	    int sum=x+y;
+	    int prd=x*y;
+	    int div1=x/y;
+	    int div2=y/x;
+	    int mod=x%y;
+	    int exp= x*y/x+y;
+	    //Precedence of * >/, +=-
+		System.out.println(sum);
+		System.out.println(prd);
+		System.out.println(div1);
+		System.out.println(div2);
+		System.out.println(mod);
+		System.out.println(exp);
+	}
+}

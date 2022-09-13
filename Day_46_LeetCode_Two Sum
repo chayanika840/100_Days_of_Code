@@ -1,0 +1,22 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map=new HashMap();
+        
+        //Fill in the elements in the HM
+        for(int i=0;i<nums.length;i++){
+            map.put(nums[i],i);
+        }
+        
+        //Searching the HM
+        for(int i=0;i<nums.length;i++){ //2 7 11 15 target=9
+            int num=nums[i];//2 select kra meine agar toh bachega 7
+            int rem=target-num; //yahan rem=9-2=7 select krenge
+            if(map.containsKey(rem)){  //check krenge if 7 exixst in the HM
+                int index=map.get(rem); //mapping the calues
+                if(index==i) continue; //if the index is same then skip it n not count it again
+                return new int[] {i,index};       //return the index value }
+            }
+        }
+        return new int[]{};
+    }
+}

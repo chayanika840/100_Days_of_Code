@@ -1,0 +1,38 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+    
+//Information on how to solve this problem (for me :)) )
+    
+        //sliding window technique -optimal solution hoga
+        //brute force mein..ek element uatya aur uske sath har ki substring calculate krte jana haii..not time efficiet with O(n^2) time compexity and use stacks and get O(n) space complexity
+        //2 pointer liye Left(L) & Right(R) jo hum move krte rahnege..n har point pr size calculate krenge ..jab tk koi repeat nhi ho rha R move krenge..jaise he repeat hua (to check we make a count array or set or hashmap)
+        //idhar hum set use krke duplicacy nahi ane denge unique value set..n calculate size of window each time
+        //phir check krte raho n move right pointer..n move Left pointer jb tk woh element remove na ho jaye..while loop use krenge islke liye
+        //phir window duplicacy remove ho gyi n then keep moving the right pointer
+        //Time complexity O(n) ek pass mein sara kam ho rha hai
+        //Space complexity O(n)
+        
+        
+        int left=0,right=0;
+        Set<Character> seen= new HashSet();
+        int max=0;
+        
+        while(right<s.length()){
+            char c=s.charAt(right);
+            if(seen.add(c)){
+                max=Math.max(max,right-left+1);
+                right++;
+            }
+            else{
+                
+                while(s.charAt(left) !=c){
+                    seen.remove(s.charAt(left));
+                    left++;
+                }
+                seen.remove(c);
+                left++;
+            }
+        }
+        return max;
+}
+}

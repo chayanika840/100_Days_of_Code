@@ -1,3 +1,5 @@
+//(Array problem)
+
 class Solution {
     
     //we need to make all rows n cols jismein 0 aye as 0..brute force hoga har element pr jana n check krna n change krna..

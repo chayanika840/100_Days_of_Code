@@ -1,0 +1,21 @@
+//(Arrays topic)
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        
+        //brute force is to keep "i" at a position and j ko travese through it n check for an element> i. check krte rho n i ko badate jao aage n store the maximum difference of large-small ..time complexity is O(n^2) space complexity is O(1)
+        //Optimized solution to the problem :  Linearly keep track n traverse through the array keep max as 0, once minimal is 7 n selling is also 7 then not counted..then the minimal gets updated to 1..minimal 1 hai in 5 ka case ..update minimal to give maimum profit
+        //Time complexity O(N), Space complexity is O(1)
+        
+        int minprice=Integer.MAX_VALUE;
+        int maxprofit=0;
+        for(int i=0;i<prices.length;i++){
+            if(prices[i]<minprice)
+                minprice=prices[i];
+            else if(prices[i]-minprice>maxprofit)
+                maxprofit=prices[i]-minprice;
+        }
+        return maxprofit;
+        
+    }
+}

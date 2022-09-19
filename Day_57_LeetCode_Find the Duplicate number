@@ -1,0 +1,37 @@
+//Array Problem
+
+/*Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+
+There is only one repeated number in nums, return this repeated number.
+
+You must solve the problem without modifying the array nums and uses only constant extra space.
+Example 1:
+
+Input: nums = [1,3,4,2,2]
+Output: 2
+*/
+
+class Solution {
+    public int findDuplicate(int[] nums) {
+        
+        //Brute force appraoch hoga ki sort kre hum array ko phir linearly traverese tre..hume ismein dhekna hai phir ki value at index[i]==value at index[i+1] then remove it 
+        //time complexity: O(n log n) ->merge sort complexity space complexity: O(1)
+        
+        //Optimial solution is using turtle method. first element liya then moce to element index which is at the index 1..similarly for all indexes we find out.
+        //then we take 2 pointers 1 slow pointer(moves one place) and 1 fast pointer(moves 2 places at a time) and when ever slow and fast pointer meet is the common element till there is a loop in the array
+        // Time complexity: O(n)   Space complexity: O(1)
+        int s=nums[0];
+        int f=nums[0];
+        do{
+            s=nums[s];
+            f=nums[nums[f]];
+        }
+        while(s!=f);
+        f=nums[0];
+        while(s!=f){
+            s=nums[s];
+            f=nums[f];
+        }
+        return s;
+    }
+}

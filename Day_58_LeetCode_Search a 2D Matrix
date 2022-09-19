@@ -1,0 +1,41 @@
+//Array problem
+
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        
+        //ask interviewer ki first element exceeds the last elemnt of next row or not
+        //searching a 2d matrix -linear search is the naive approach n find element n print true if found otherwise false ... time complexity for this is O(m*n) ..space complexity is O(1)
+        
+        //Optimized approach ..the rows are sorted ..so traverse each row ..do binary search for each row..row1 phir row 2.. row 3..if found element retrun true otherwise false. Time complexity: O(n* log base 2 m)
+        
+        //go to last element of first row..in this example suppose we want to find 23 ..so 7 is last element 23>7 so move downwards to 20..23>20 so move downwards again..23<60 so move left...23<34 so again leftwards..23<30 so again leftwards n we found 23!! 
+        
+        //if an element is not found in the matrix ==> we keep moving leftwards/downwards n end up out of matrix..this would be that condition when element/target not in matrix
+        
+        //low mid high find kro usin row n column index n didvide it into left n right halves and then find..this is most optimized algo..time complexity is O(log base 2(n*m))..space complexity is  O(1)
+        
+        //the best way to optimize this algorithm is the last one...or use the second last one in geeks for geeks where the order is specifically mentioned by the interviewer or in code as well
+        
+        
+        if(matrix.length==0)
+            return false;
+        int n=matrix.length;
+        int m=matrix[0].length;
+        int lo=0;
+        int hi=(n*m)-1;
+        
+        while(lo <=hi ){
+            int mid=(lo+(hi-lo)/2);
+            if(matrix[mid/m][mid %m]==target){
+                return true;
+            }
+            if(matrix[mid/m][mid%m]<target){
+                lo=mid+1;
+            }
+            else{
+                hi=mid-1;
+            }
+        }
+        return false;
+    }
+}

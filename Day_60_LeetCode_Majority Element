@@ -1,0 +1,36 @@
+/* Given an array nums of size n, return the majority element.
+
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+ 
+
+Example 1:
+
+Input: nums = [3,2,3]
+Output: 3
+Example 2:
+
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+*/
+
+class Solution {
+    public int majorityElement(int[] nums) {
+        
+        //use a hashmap is optimized solution to this problem..key value pairs mein store kro
+        //insert an element n keep its count(key) increase it each time elemnt occurs..element >n/2 thus dats the condition to find it 
+        //time complexity is O(n log n)
+        //most optimized Moore Voting algo to reduce space n time complexity take count =0 and element =0 n linearly iterate..element ki value =element ki value...count change hoga jab eleemnt change hoyae
+        
+        int count=0;
+        int candidate=0;
+        for(int num: nums){
+            if(count==0){
+                candidate=num;
+            }
+            if(num==candidate) count +=1;
+            else count -=1;
+        }
+        return candidate;
+    }
+}

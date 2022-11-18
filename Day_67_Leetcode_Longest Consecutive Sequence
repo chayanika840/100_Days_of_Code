@@ -1,0 +1,28 @@
+//Brute force technique is to sort the array then linearly traverse the sorted array to find the longest consecutive sequence. Time complexity of this is  O(NlogN)+O(N) and O(N) for merge sort. 
+
+//Optimized approach- linearly iterate and put the elements in a hash set and then keep checking if 1 less than element exists...if it doesnt check for next number..100->101->102..done to start from minimal number.. so we dont repeat it again for 101, 102. Time complexity is O(3N), Space Complexity O(N)
+
+
+
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        Set<Integer>hashSet=new HashSet<Integer>();
+        for(int num:nums){
+            hashSet.add(num);
+        }
+        int longestStreak=0;
+        for(int num: nums){
+            if(!hashSet.contains(num-1)){
+                int currentNum=num;
+                int currentStreak=1;
+                
+                while(hashSet.contains(currentNum+1)){
+                    currentNum +=1;
+                    currentStreak +=1;
+                }
+                longestStreak=Math.max(longestStreak, currentStreak);
+            }
+        }
+        return longestStreak;
+    }
+}

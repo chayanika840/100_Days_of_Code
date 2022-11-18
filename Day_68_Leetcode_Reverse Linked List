@@ -1,0 +1,26 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+ 
+//create a dummy node jisko null de diya..phir next krte hue point krte rehna hai head node ko agle node pr..phir second iteration krni hai and keep ponting it to the next element..dummy node ko har bar chage krna to next element in reverese order. once head reaches null..we achieve our output n return the dummy node.. Time complexity O(N).
+
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode newHead=null;
+        while(head != null){
+            ListNode next=head.next;
+            head.next=newHead;
+            newHead=head;
+            head=next;
+        }
+        return newHead;
+        
+    }
+}

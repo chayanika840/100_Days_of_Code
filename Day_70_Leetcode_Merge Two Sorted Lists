@@ -1,0 +1,43 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+//merge two linked lists in one single linked list dummy  node create krenge next pointer phir dummy node se move krte rahnege head ki position change krte rahenge phir..new node banayege if value is less ... 
+
+//optimized solution is INPLACE merge sorted linked list..1->1that 1->2 then 2->3..3->4 then 4->4 ( -> =  points to)
+//which ever one is smaller point l1 to it, l2 to the other n multiple iterations krenge .. resultant is marked to l1...in first iteration ..temp->null de diya phir l1 element<l2 element tab tk assigned hai then keep moving it..to next elemtnet then reasiisgn temp value..jab l1>l2 element then first iteration stops..temp node jisko point krega uska break kra temp->next goes to l2..phir l2 mein iteration hogi..swap kra phir..l1 aur l2 ki values ko ..phir sb vapis same repeat kra till end of linked list taur iterations badte raheni hai..point l2-l1 l1 jab null toh we stop...Time Complexity : O(N1+N2), Space complexity :O(N)
+
+
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if(l1==null) return l2;
+        if(l2 ==null) return l1;
+        if(l1.val>l2.val){
+            ListNode temp=l1;
+            l1=l2;
+            l2=temp;
+        }
+        ListNode res=l1;
+        while(l1!=null && l2!=null){
+            ListNode tmp=null;
+            while(l1!=null && l1.val<=l2.val){
+            tmp=l1;
+            l1=l1.next;
+        }
+        tmp.next=l2;
+        
+        ListNode temp=l1;
+        l1=l2;
+        l2=temp;
+        }
+        return res;
+        
+    }
+}

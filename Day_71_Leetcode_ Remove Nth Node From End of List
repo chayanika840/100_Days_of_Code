@@ -1,0 +1,36 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+//cant use extra space.. extra pointer nikalna hai..lineraly iterate for given head ko dummy node.. aur phir isko move krte raho counter ko...dummy node reaches null phir end kroge.. length of linked list se subtaract kro ..counteer=1 initially..once counter=value we get after subtraction..we get the result. n keep pointitng node=t->next..phir t->n=t->n->next uksa internal delte call krenge phir to dleete the node n link.... now edge case is eqal to lenght of linked list...phir head ko move krna hai aur nternally delete the first node..and then return the linked list..time complexity: O(N)+O(N)=O(2N), Space complexity O(1)
+
+//Optimized approach: dummy node lenge..fast pointer aur slow ponter lenge phir n=4..fast ppointer ko move krengelineraly and 4th iteration pr it stops.. slow pointwer dummy node ko point krega n fast pointer last node tk move krenge by 1 step each from jahan se fast pointer chora tha.usko move kenge jaise he fast ponter reaches last ie null value..then s->next=s->next->next..phir delete krte hain element ko..edge case mein dummy lekar keep pointing dummy ka link broken n then return dummy->next will be the answer..Time complexity: O(N), Space complexity: O(1)
+
+
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode start=new ListNode();
+        start.next=head;
+        ListNode fast=start;
+        ListNode slow=start;
+        
+        for(int i=1; i<=n;++i)
+            fast=fast.next;
+        
+        while(fast.next!=null){
+            fast=fast.next;
+            slow=slow.next;
+        }
+        slow.next=slow.next.next;
+        
+        return head;
+        //return slow;
+    }
+}

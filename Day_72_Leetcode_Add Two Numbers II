@@ -1,0 +1,43 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+//har element ki list ke elemts ko add krna hai...carry kreke add head return krna hai linked list ka ..
+
+
+//this has only optimial solution which is..first ask for edge cases to the interviewer..create a dummy node assign to zero and create a copy named temp,,only move temp node n carry a variable sum and carry ..in first iteration..check if value is non null then asdd it to the sum increment it..then check l2 for non null.. then add phur carry hai kuch toh carry mein dal do..temp ko iska result mein dalo and l1 n l2 ko aage lekar badao.. in second iteration ..zero again..phir l1 l2 not null..keep incrementing n sum n carry values by mod 10 value..carry 1 ...summation /10 gives carry..move temp node ahain thrn l1 n l2 move ..again repeat same steps n keep adding the elements...l1 or l2 null hua toh add nothing mtlb iska to the element..jo null hua usko move nhi krenge phir..agle ko move kra add kra n reahc the last of the linked list..we keep moving till either of l1 or l2 is null ..
+
+
+//or if value of carry is non zero..till then we move..we create new node assign 1 to it n temp usko point kree n l1 n l2 pont to null.. so l1 l2 =null and carry=0 then we stop n we get the resultant added linked list..dummy ka next print krvaeynge to get the answer..Time complexity: O(max(N,M)) , Space complexity: O(N)
+
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy= new ListNode();
+        ListNode temp= dummy;
+        int carry=0;
+        while(l1 !=null || l2 !=null || carry==1){
+            int sum=0;
+            if(l1 !=null){
+                sum +=l1.val;
+                l1=l1.next;
+            }
+            if(l2 !=null){
+                sum +=l2.val;
+                l2=l2.next;
+            }
+            sum +=carry;
+            carry=sum/10;
+            ListNode node=new ListNode(sum % 10);
+            temp.next=node;
+            temp=temp.next;
+        }
+        return dummy.next;
+        
+    }
+}

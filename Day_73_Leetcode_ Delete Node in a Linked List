@@ -1,0 +1,21 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+
+//only node diya hai head nhi diya hai..aur node to be deleted is not tail node..right node he access kr sakte hain..copy next next value over the node we want to delete and next of 3 ko point kr diya..siraf value change kr di na ki node dlete kra phir indirectly deleted the node..for entire node deleteion we need a head.. node->val=node->next->val....node->next=node->next->next...
+
+//agar tail node hota toh assign node->null phir check if it points to null..time complexity O(1) Space complexity :O(1)
+
+
+class Solution {
+    public void deleteNode(ListNode node) {
+        node.val=node.next.val;
+        node.next=node.next.next;
+        
+    }
+}

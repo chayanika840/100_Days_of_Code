@@ -1,0 +1,41 @@
+// Intersection of Two Linked Lists..jahan pr 2 nodes same honge.unka location addreess aur location same ho..
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+
+//the reference node is to be same..intersection node find kro, varna return null value 
+
+// brute force..sare nodes check krenge ki both nodes are same not value..agar nodes same hue toh intersection hai varna move ahead..if we exceed second linked list ..null i.e koi intersection nhi.. Time complexity: O(N*M)
+
+//Optimized apppraoch: Hashing..linked list 1 ko traverse krenge phele, node address hash krenge.. uske baad iterate for linked list 2 ..the node address jo phele he saved hoga hashing mein agar intersection hai..varna null for intersection..Timr complexity: O(N+M), Space complexity: O(N)
+
+//Dummy node lekar from both l1 n l2 ..find lenght of linked list by dummy nodes ko traverse till end.. d1, d2 dummy nodes ko head pr lagaya aur difference between longer-shorter linked list..longer linked list ka dummy node ko 2 iterations move krenge difference ko cover krene ke liye..d1 n d2 jab sath ayenge collide krenge i.e is the intersection node point which is the answer.. agar no intersection point then..d1 d2 null pr ayenge bcomes null at equal time..Time complexity: O(M)+O(M-N)+O(N)=O(2M), Space complexity:O(1)--- NOT PREFERRED LENGHTY PIECE OF CODE
+
+//Optimized approach which is shorter...2 dummy nodes d1, d2 for each linked list l1 n l2.. simultaneously move the dummy nodes..d1 n d2 over iterations..d1 points to null d2 moves to next..the moment any of ur dummy nodes reaches null..dosri linked list ke head pr usko lekar aajo jispr dummy node (d1) abhi null na pocha ho..phir unn dono ko simulatenously move kro..phir d2 ko linked list l1 pr le jayenge ..phir move krenge phir same jb d1 n d2 same iteration/collide pr ayenge toh we found intersection..agar koi intersection nhi hota toh..d1 n d2 dono null pr ajate...Time complexity: O(2M), Space complexity: O(1), Code is simpler n easy isliye tell this in interview.
+
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if(headA ==null || headB==null) return null;
+        
+        ListNode a=headA;
+        ListNode b=headB;
+        
+        //if a and b have different lengts then we will stop loop after second iteration
+        
+        while(a != b){
+            a=a ==null? headB: a.next;
+            b=b ==null? headA: b.next;
+        }
+        return a;
+        
+    }
+}

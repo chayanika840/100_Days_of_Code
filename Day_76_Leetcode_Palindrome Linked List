@@ -58,3 +58,51 @@ class Solution {
         return pre;
     }
 }
+
+//OR DO THIS CODE:
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+// ulta aur eedha same ho toh palindrome hai..
+
+//Naive approach ..ek array mein dal dneege to check if that is palindrome or not..Extra space complexity is used: O(N), Time complexity: O(N)+O(N)=O(2N)
+
+//Optimized appraoch: First find the middle of the linked list..slow pointer liya n fast poninter liya.. slow moves by 1 step n fast pointer moved by 2 steps..the moment second last or last node we stop..left node is middle for even linked list n odd ke liye we find the slow pointer position..we reverse the right half of linked list..the modifief linked list is at middle..right half change hua slow pointer is moved by one more position n phir ek dummy node lekar usko move krenge..slow aur dummy ki vlues compare krenge n jaise he slow reaches null n sb match krenge phir we get a palindrome string..other wise not...again reverse the right half to get the original palindrome linked list..
+//Time complexity:O(N/2)+O(N/2)+  (O(N/2)+O(N/2) OPTIONAL IF INTERVIEW ASKS TO REVERSE IT AGAIN).. Space complexity:O(1)
+
+
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        ListNode slow = head, fast = head, prev, temp;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        prev = slow;
+        slow = slow.next;
+        prev.next = null;
+        while (slow != null) {
+            temp = slow.next;
+            slow.next = prev;
+            prev = slow;
+            slow = temp;
+        }
+        fast = head;
+        slow = prev;
+        while (slow != null) {
+            if (fast.val != slow.val) return false;
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return true;
+    }
+}

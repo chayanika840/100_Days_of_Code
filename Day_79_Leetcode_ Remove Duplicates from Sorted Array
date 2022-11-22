@@ -1,0 +1,23 @@
+//agar value same hui toh element nikal do varna usko array mein rakho.. easy peesy
+// optimized approach 2 pointers use krenge Take a variable i as 0;
+//Use a for loop by using a variable ‘j’ from 1 to length of the array.
+//If arr[j] != arr[i], increase ‘i’ and update arr[i] == arr[j].
+//After completion of the loop return i+1, i.e size of the array of unique elements.
+//Time complexity: O(n); Space Complexity: O(1)
+
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if(nums.length==0)
+            return 0;
+        
+        int i=0;
+         for(int j=1; j<nums.length; j++){
+             if(nums[j] != nums[i]){
+                 i++;
+                 nums[i]=nums[j];
+             }
+         }
+        return i+1;
+    }
+}

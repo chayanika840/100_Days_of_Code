@@ -1,0 +1,35 @@
+//Water trap hota hai jahan pr khali space mile.. toh length nikal kr dheknege kahan water fit/stangnent ho sakta hai n usko wahan dalenge---->Hard leetcode problem finally ahan!
+
+//Naive brute force for every index we find the amount of water stored..in units of water stored ..for each index jahan store ho paye individually phr last mein submation kr denge..found by maximum height building on left - building height..min(left(i),right(i)-a[i])..example dheko figure..i to 0 to get max on left side and i to n-1 for right complete iteration on right..Time complexity: O( N^2), Space complexity: O(1)..
+
+//Optimized approach: prefix max n suffix max array banaeyge aur values store krenge ..seedha aur ulta chalakr values find krete jayege n emoved the nested loop this way..har ke liye individual nhi krna padega phir..left max n right max find krna hai...Time complexity: O(3N)=O(N); Space complexity:O(2N)still  not so optimized..
+
+//Most optimal soln..2 pointer approach..left poniter l=0, right poiter r=n-1, lmax=0, rmax=0, if(a[l]<=a[r]) then compare the value then if it greater than lmax, l++ again compare n repeat..lmax ki value chane if it(adrress/value) is greater than lmax..agar < hua toh water store hoga toh unit 1 resultant mein jayega lmax-a[i] ki value store hoga..add water to resultant phir left pointer move krenge...else block mein ayenge phir..right block se deal krenege ismein ..if(a[r]> =rmax) rmax=a[r]..else resulatt + rmax-a[i]..phir right wala same iteration chalega....Time complexity:O(N); Space complexity:O(1)
+
+
+class Solution {
+    public int trap(int[] height) {
+        int n = height.length;
+        int left = 0, right = n - 1;
+        int res = 0;
+        int maxLeft = 0, maxRight = 0;
+        while (left <= right) {
+            if (height[left] <= height[right]) {
+                if (height[left] >= maxLeft) {
+                    maxLeft = height[left];
+                } else {
+                    res += maxLeft - height[left];
+                }
+                left++;
+            } else {
+                if (height[right] >= maxRight) {
+                    maxRight = height[right];
+                } else {
+                    res += maxRight - height[right];
+                }
+                right--;
+            }
+        }
+        return res;
+    }
+}

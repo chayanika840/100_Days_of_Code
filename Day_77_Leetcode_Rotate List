@@ -1,0 +1,44 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+// jitna k ki value hai utni baar rotate krna hai phir linked list ka new head print krvna hai..k can be greater than length of the linked list..so iss condition ko dhayan rakhna..
+
+//naive approach..k rotations, pick up last node n put it in the front..again tke the last node n put in the front..keep doing this for k number of times..resultatnt rotated linked list mil jayega..Time complexity:O(k*N), Space complexity: O(1)
+
+//Optmized approach: k<len n k>=len 2 cases..multiples of that number mein original vlaue vapis milengi..any multiple of len will give original linked list back..so km rotation krni honge..length find kro sabse phele counter pointer rakhkr move krvate rehna hai n last node pr we find the length..seocnd step -last element ko null pr nhi balki  head ko point krna hai circular linked list banae ke liye.. count till we dont reach the k variations cover krna ..head point cut its next to null ..Time complexity:O(N), Space complexity: O(1)
+
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        //jo edge case upr bataya jb k>=len wala uske lye hum ye krnege
+        if(head== null || k==0)
+            return head;
+        
+        //length nikalne ke liye ye krnege
+        ListNode cur=head;
+        int len=1;
+        while(cur.next !=null){
+            len++;
+            cur=cur.next;
+        }
+        
+        //node tk jane ke liye..
+        cur.next=head;
+        k=len-k % len;
+        while(k-->0) 
+            cur=cur.next;
+        
+        //make the head and break connection finally
+        head=cur.next;
+        cur.next=null;
+        
+        return head;
+    }
+}

@@ -1,0 +1,19 @@
+//jo sath mein 1 ya 0 aye toh uske num print krna hai..iteration use krenge count variable n max variable =0 at first.. har index pr move krenge..count ++ if val=1, count aur max comapre krenge har index pr..0 aya toh consecutive one hat jayega n count zero ho jayega..1 ate he count update n consecutive ginte rahenge max mein...Time complexity:O(N), Space complexity: O(1)
+
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int count=0;
+        int max=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==1){
+                count++;
+            }
+            else{
+                count=0;
+            }
+            max=Math.max(max,count);
+        }
+        return max;
+        
+    }
+}

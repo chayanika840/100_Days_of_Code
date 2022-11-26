@@ -1,0 +1,18 @@
+//min coins required to find given no..minus nhi krna..siraf add kr sakte hai.. eg 49:20+2=+5+2+2 ..greates among them =20greedy approach lagenege..sabse max ko lete raho baki bache ko add krte krte find n as many as possible lete rahege..start from max or last ..back jate jayenge to each coin/note..max jise form ho paye 49 lenge..20 aya woh phir subtract kra 49-20=29 phir 20 use kr sakte 29-20=9, ab 20 nhi usekr skte..10 use nhi kr sakte..phr we can use 5 rupee ..9-5=4 , 5 ab vapis use nhi ho sakta..ab 2 baar 2 lenge toh total 49 ho jayega humara..dats the output of notes/coins required..stored in another data structure!!
+//Time complexity: O(V); Space complexity: O(1)
+//it fails if we add 2smaller coins 2+5=7 <10 always...1,5,6,9 liya suppose n 11 form krna hai..toh 9,1,1 hoga.. 5 n 6 loge toh 2 coins lene padnege rather than 3 ..toh ye edge case hai!!...
+
+class Solution {
+    public int maxCoins(int[] piles) {
+        Arrays.sort(piles);
+      int k=0;
+        int sum=0;
+        int idx= piles.length-2;
+        while(k!= ((piles.length)/3) ){
+            sum=sum+piles[idx];
+            idx=idx-2;
+            k++;
+        }
+     return sum;
+    }
+}

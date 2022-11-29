@@ -1,0 +1,50 @@
+/*/We can use two hashmaps to solve this problem. One uses value as keys and the other uses index as the keys...Design a data structure that supports all following operations in O(1) time.
+
+insert(val): Inserts an item val to the set if not already present.
+remove(val): Removes an item val from the set if present.
+getRandom: Returns a random element from current set of elements. Each element must have the same probability of being returned.*/
+
+
+public class RandomizedSet {
+ 
+     private Map<Integer, Integer> elemIndexMap;
+     private List<Integer> lst;
+     private Random rand;
+ 
+           //Constructor
+    public RandomizedSet() {
+      elemIndexMap = new HashMap<>();
+      lst = new ArrayList<>();
+         rand = new Random();
+     }
+     
+     public boolean insert(int val) {
+         if (!elemIndexMap.containsKey(val)) {
+             lst.add(val);
+             elemIndexMap.put(val, lst.size() - 1);
+             
+             return true;
+         }
+         return false;
+     }
+     
+     public boolean remove(int val) {
+         if (!elemIndexMap.containsKey(val) )
+             return false;
+ 
+          int indexToRemove = elemIndexMap.get(val);
+          int lastElement = lst.get(lst.size() - 1);
+ 
+                 lst.set(indexToRemove, lastElement);
+                 elemIndexMap.put(lastElement, indexToRemove);    
+ 
+                 elemIndexMap.remove(val);
+                 lst.remove(lst.size() - 1);
+ 
+                 return true;
+           }
+     
+    public int getRandom() {
+         return lst.get(rand.nextInt(lst.size()));
+     }
+}

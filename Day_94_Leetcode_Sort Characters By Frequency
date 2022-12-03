@@ -1,0 +1,36 @@
+/*The basic idea is to store the frequencies of each character in descending order and then append the characters to the result string.
+
+1)  We can use a map to store the frequency of each character in the input String S. Let’s say we stored that in a map called characterCount.
+
+2) We can either sort the map according to the frequency count and then for each key check its frequency value and append to the result string that many times.
+
+Input:
+S = “Aabb”
+
+Output:
+“bbaA”  or “bbAa”
+
+Explanation:
+i) For the first test case, ‘b’ has the highest frequency (3) followed by ‘d’ (2). ‘a’ and ‘c’ have the same frequency (1). So we can place them in any order. Hence both “bbbddac” and “bbbddca” are correct output.
+
+ii) For the second test case, ‘b’ has the highest frequency (2). ‘a’ and ‘A’ are 2 different characters and have the same frequency (1). So we can place them in any order. Hence both “bbaA” and “bbAa” are correct output.
+ */
+ 
+ class Solution {
+    public String frequencySort(String S) {
+        Map<Character, Integer> characterCount = new HashMap<>();
+        for (char ch : S.toCharArray()) {
+            characterCount.put(ch, characterCount.getOrDefault(ch, 0) + 1);
+        }
+        List<Character> charactersList = new ArrayList<>(characterCount.keySet());        
+        Collections.sort(charactersList, (ch1, ch2) -> characterCount.get(ch2) - characterCount.get(ch1));
+        StringBuilder result = new StringBuilder();
+        for (char ch : charactersList) {
+            int charCount = characterCount.get(ch);
+            for (int i = 0; i < charCount; i++) {
+                result.append(ch);
+            }
+        }
+        return result.toString();
+    }
+}

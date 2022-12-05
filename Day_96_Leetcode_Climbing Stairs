@@ -1,0 +1,11 @@
+//olution using the Fibonacci number formula and once again in my opinion, interviewers would not be expecting you to know this since it’s purely mathematical based.//
+//Using Formula — Time: O(1), Space: O(1)
+
+class Solution {
+    public int climbStairs(int n) {
+        double sqrt5=Math.sqrt(5);
+        double fin=Math.pow((1+sqrt5)/2,n+1)-Math.pow((1-sqrt5)/2,n+1);
+        return (int)(fin/sqrt5);
+        
+    }
+}

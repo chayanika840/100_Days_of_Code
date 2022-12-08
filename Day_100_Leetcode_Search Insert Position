@@ -1,0 +1,8 @@
+//tiny solution using in build function
+
+
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        return (int) Arrays.stream(nums).filter(n -> n < target).count();
+    }
+}

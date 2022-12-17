@@ -1,0 +1,47 @@
+//This one is important!!
+//This problem can be solved by using a stack. We can loop through each element in the given array. When it is a number, push it to the stack. When it is an operator, pop two numbers from the stack, do the calculation, and push back the result.
+//Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid operators are +, -, *, /. Each operand may be an integer or another expression. For example:
+
+ // ["2", "1", "+", "3", "*"] -> ((2 + 1) * 3) -> 9
+ // ["4", "13", "5", "/", "+"] -> (4 + (13 / 5)) -> 6
+ 
+ //Polish notation is a notation form for expressing arithmetic, logic and algebraic equations. Its most basic distinguishing feature is that operators are placed on the left of their operands. If the operator has a defined fixed number of operands, the syntax does not require brackets or parenthesis to lessen ambiguity.
+ 
+ class Solution {
+    public int evalRPN(String[] tokens) {
+        int returnValue = 0;
+ 
+        String operators = "+-*/";
+ 
+        Stack<String> stack = new Stack<String>();
+ 
+        for(String t : tokens){
+            if(!operators.contains(t)){
+                stack.push(t);
+            }else{
+                int a = Integer.valueOf(stack.pop());
+                int b = Integer.valueOf(stack.pop());
+                int index = operators.indexOf(t);
+                switch(index){
+                    case 0:
+                        stack.push(String.valueOf(a+b));
+                        break;
+                    case 1:
+                        stack.push(String.valueOf(b-a));
+                        break;
+                    case 2:
+                        stack.push(String.valueOf(a*b));
+                        break;
+                    case 3:
+                        stack.push(String.valueOf(b/a));
+                        break;
+                }
+            }
+        }
+ 
+        returnValue = Integer.valueOf(stack.pop());
+ 
+        return returnValue;
+ 
+    }
+}

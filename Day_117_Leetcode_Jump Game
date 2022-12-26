@@ -1,0 +1,26 @@
+//Time Complexity: O(n) | Where n is the length of the array.
+//Space Complexity: O(1) | As we never allocate any additional memory.
+/* 
+We're going to initialize a goal post, which is initially the last index.
+We're going to setup a For Loop that iterates over the array backwards.
+We ask each element 'Can you jump to or over the goal post from here?' if so, we set the goal post to that element.
+If not, we continue looping.
+We repeat this logic until we've been through the entire array.
+Is the goal post now at the first index? If so we can jump to the last index, if not, we cannot jump to it. 
+*/
+
+class Solution {
+    public boolean canJump(int[] nums) {
+        int goal_post = nums.length - 1;
+
+        for (int i = nums.length - 1; i >= 0; i--) {
+            int jump_distance = i + nums[i];
+            if (jump_distance >= goal_post) {
+                goal_post = i;
+            }
+        }
+
+        return (goal_post == 0) ? true : false;
+       
+    }
+}

@@ -1,0 +1,31 @@
+/*/Time complexity: O(N)
+N represents the number of words in s or the number of letters in the pattern
+Space complexity: O(M)
+M represents the number of unique words in s. Although there are 2 hashmaps there can be at most 26 keys, hence space complexity of the map is constant. */
+
+class Solution {
+    public boolean wordPattern(String pattern, String s) {
+         Map<Character,String> m=new HashMap<>();
+        String words[]=s.split(" ");
+        
+        if(pattern.length()!=words.length) return false;
+        
+        int n = words.length;
+        for(int i=0;i<n;i++){
+            
+            char c= pattern.charAt(i);
+            
+            if(m.containsKey(c)){
+                if(!words[i].equals(m.get(c))) return false;
+            }
+            else{
+                if(m.containsValue(words[i])){
+                    return false;
+                }
+                m.put(c, words[i]);
+            }
+        }
+        return true;
+        
+    }
+}

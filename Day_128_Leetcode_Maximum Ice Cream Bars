@@ -1,0 +1,19 @@
+/* least cost ki ice cream bars find krenge jo woh unte paise jitne uske pas hain usmein khareed sake.! toh phele sort krenge hum ..followed by which hum iterate krenge ek for loop chalkar aur sum krte jayenge sare elements till we get amount jo uske pas hai ..sum ko update krenge aur count mein jo khared liya usko nikal kr totl find krenge,../*/
+
+/*Time: O(n\log n)O(nlogn)
+Space: O(1)O(1) /*/
+
+class Solution {
+    public int maxIceCream(int[] costs, int coins) {
+        Arrays.sort(costs);
+
+    for (int i = 0; i < costs.length; ++i)
+      if (coins >= costs[i])
+        coins -= costs[i];
+      else
+        return i;
+
+    return costs.length;
+        
+    }
+}

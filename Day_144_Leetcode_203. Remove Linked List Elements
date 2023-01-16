@@ -1,0 +1,37 @@
+/*/Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head.
+
+Example 1:
+
+Input: head = [1,2,6,3,4,5,6], val = 6
+Output: [1,2,3,4,5]
+
+//he key to solve this problem is using a helper node to track the head of the list.
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+          ListNode helper = new ListNode(0);
+    helper.next = head;
+    ListNode p = helper;
+ 
+    while(p.next != null){
+        if(p.next.val == val){
+            ListNode next = p.next;
+            p.next = next.next; 
+        }else{
+            p = p.next;
+        }
+    }
+ 
+    return helper.next;
+        
+    }
+}Day

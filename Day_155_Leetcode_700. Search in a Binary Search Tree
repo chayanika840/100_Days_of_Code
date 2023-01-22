@@ -1,0 +1,28 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+//ek element serch krna hai element ko. log 2 base N height hoti hai bst..
+//left< current and right> curent noe u r standing at.. root se element ko comapre kara if its smaller than it then its in left half otherwise if element > root then search in right half..
+//then same comparison hum krenge for sub parent of root check krnege n if dat subparent is > element to be searched we check left side othrwise we search right half of the bst
+//Time complexity: O(log base 2 N)
+
+class Solution {
+    public TreeNode searchBST(TreeNode root, int val) {
+        while(root !=null && root.val != val){
+            root= val<root.val? root.left : root.right;
+        }
+        return root;
+    }
+}

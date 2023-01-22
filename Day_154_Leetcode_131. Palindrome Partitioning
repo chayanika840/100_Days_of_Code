@@ -1,0 +1,37 @@
+//reads sam backward and forward
+//brute force aabb string liya a pr aya ohir a pr aaya bphir b n b pr..another one will be a pr phir a pr then bb aya..like aabb-> {a,a,b,b},{a,a,bb},{aa,b,b},{aa,bb} these are 4 partitions possible..recursion aa rhi yaha pr..
+//primary task is to partition ..which is first partitio u should do? a/abb..next partition would be aa/bb (ake baad agar allow nahi kra) phir bb pr kara jo possible nahi aab/b wont be a palindrome.. ab inn string pr recursion function lagegenge..
+//jab end tk poche then backtrack through recursion call..aur sare substring linhkenge..left recursion done then go for right recursion.. inka partition krenge phir..
+
+class Solution {
+    public List<List<String>> partition(String s) {
+        List<List<String>> res=new ArrayList<>();
+        List<String> path=new ArrayList<>();
+        func(0,s,path, res);
+        return res; 
+    }
+
+    void func(int index, String s, List<String> path, List<List<String>> res){
+        if(index==s.length()){
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        for(int i=index;i<s.length();++i){
+            if(isPalindrome(s,index,i)){
+                path.add(s.substring(index,i+1));
+                func(i+1,s,path,res);
+                path.remove(path.size()-1);
+            }
+        }
+    }
+    boolean isPalindrome(String s,int start, int end){
+        while(start <=end ){
+            if(s.charAt(start++) != s.charAt(end--)){
+                return false;
+            }
+            
+        }
+        return true;
+    }
+}
+   

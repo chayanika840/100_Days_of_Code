@@ -1,0 +1,15 @@
+class Solution {
+    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
+        long[][] dp = new long[K+2][n];
+        for (long[] d : dp) Arrays.fill(d, Integer.MAX_VALUE);
+        dp[0][src] = 0;
+        for (int i = 1; i < K+2; i++) {
+            dp[i][src] = 0;
+            for (int[] f : flights) {
+                dp[i][f[1]] = Math.min(dp[i][f[1]], dp[i-1][f[0]] + f[2]);
+            }
+        }
+        return dp[K+1][dst] == Integer.MAX_VALUE ? -1 : (int)dp[K+1][dst];
+       
+    }
+}

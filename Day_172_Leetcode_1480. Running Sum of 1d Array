@@ -1,0 +1,10 @@
+//sum of elements to the left ginte rehna hai and add krte rehna hai sum ko
+//left to right move krenge , result array aur output same length ke honge..add krete jana hai elements ko bs
+class Solution {
+    public int[] runningSum(int[] nums) {
+        for(int i=1; i<nums.length; ++i){
+            nums[i] +=nums[i-1];
+        }
+        return  nums;
+    }
+}

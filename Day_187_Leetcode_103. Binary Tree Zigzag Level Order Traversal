@@ -1,4 +1,8 @@
 /**
+
+Time Complexity: O(N)
+Space complexity:O(N)
+
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -13,6 +17,7 @@
  *     }
  * }
  */
+ 
 class Solution {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
        if (root == null)

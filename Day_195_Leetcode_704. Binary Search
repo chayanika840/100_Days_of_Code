@@ -1,0 +1,24 @@
+//check if target is presnet in the array/list/or whatever data structure is given ..if it is present then return the index of the taregt element.. if the traget doesnt exist then return -1 as the output . use binary search for it..divide the array into halves to check for element in it..
+
+class Solution {
+    public int search(int[] nums, int target) {
+       // if(nums.length()==0 )
+        //return -1;
+        int l=0; //for left side of binary search
+        int r=nums.length-1; //right side of binary search
+
+        while(l <= r){
+            int mid=l+(r-l)/2;
+            if(nums[mid]==target){
+                return mid;
+            }
+            else if(nums[mid]>target) {
+                r=mid-1;
+            }
+            else{
+                l=mid+1;
+            }
+        }
+        return -1;
+    }
+}

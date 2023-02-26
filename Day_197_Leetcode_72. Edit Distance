@@ -1,0 +1,32 @@
+//word1 ko convert krna hai word2 mein..operations jo hm perform kr sakte wioh hai insertion, deletion and replacing.. lekin hum ek operation ek baar kr sakte..aur hume minimum operations mein ye conversion krni hai..
+
+//phele hum word ki length check krenge dono ki..uske baa ek 2D array banayenge..phir array mein 2 loops lagakr run krenge loop ko and character at each position pr check krete jayenge in both word1 and word2
+
+//Time complexity: O(mn)
+//Space complexity:O(mn)->O(n)
+
+class Solution {
+    public int minDistance(String word1, String word2) {
+       final int m = word1.length();
+    final int n = word2.length();
+
+    // dp[i][j] := min # of operations to convert word1[0..i) to word2[0..j)
+    
+    int[][] dp = new int[m + 1][n + 1];
+
+    for (int i = 1; i <= m; ++i)
+      dp[i][0] = i;
+
+    for (int j = 1; j <= n; ++j)
+      dp[0][j] = j;
+
+    for (int i = 1; i <= m; ++i)
+      for (int j = 1; j <= n; ++j)
+        if (word1.charAt(i - 1) == word2.charAt(j - 1))
+          dp[i][j] = dp[i - 1][j - 1];
+        else
+          dp[i][j] = Math.min(dp[i - 1][j - 1], Math.min(dp[i - 1][j], dp[i][j - 1])) + 1;
+
+    return dp[m][n]; 
+    }
+}

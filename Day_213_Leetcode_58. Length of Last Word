@@ -1,0 +1,28 @@
+//jab last mein humare pas space ho toh usko ignore krna hai..jaise "a " yahan pr output mein 1 ana chaiye a ke liye n ignore the space that has to be kept in mind..hume last tk check krna hai so loop n count laga kr will check..
+
+class Solution {
+    public int lengthOfLastWord(String s) {
+        int count=0;
+        if(s.length()==0)
+        return count;
+
+        int currlen=s.length()-1;
+        int p=currlen;
+
+        while(p>=0){
+            if(s.charAt(p) != ' '){
+                break;
+            }
+            p--;
+            currlen--;
+        }
+        for(int i=currlen; i>=0; i--){
+            if(s.charAt(i)== ' '){
+                break;
+            }
+            count++;
+
+        }
+        return count;
+    }
+}
